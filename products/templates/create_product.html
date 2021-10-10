@@ -1,0 +1,37 @@
+
+{% block title %}Edit/Create Product{% endblock %}
+
+{% load static %}
+{% block sub_content %}
+<div class="col-6 mx-auto">
+    <h1 class="h3">Create/Edit Product</h1>
+    <hr/>
+    <form name="product_form" class="account_form" method="post" enctype="multipart/form-data">
+        {% if form.errors %}
+        <div class="alert alert-primary" role="alert">
+          Error: Please try again!
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <label class="small fw-bold">{{ product.title }}</label>
+        {{ product.title }}
+        <label class="small fw-bold">{{ product.description }}</label>
+        {{ product.description }}
+        <label class="small fw-bold">{{ product.image }}</label>
+        {{ product.image }}
+        <button class="btn btn-primary btn-block py-2 mb-4 mt-4 fw-bold w-100" type="button" value="Submit" onclick="submitForm()">
+        Add Address
+        </button>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        let form = document.getElementsByName('address_form')[0];
+        form.submit(); // Submit the form
+        form.reset();  // Reset all form data
+        return false; // Prevent page refresh
+    }
+</script>
+
+{% endblock %}

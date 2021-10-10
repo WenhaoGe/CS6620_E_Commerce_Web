@@ -18,6 +18,7 @@
             <button class="col btn btn-link btn-lg">
               Shopping cart
             </button>
+              <h3>Username: Wenhao</h3>
           </div>
         </div>
     </div>
@@ -28,7 +29,12 @@
         {% extends "base.html" %}
         {% load static %}
         {% block page_content %}
+        <div class="container-fluid">
         <h1>Products</h1>
+        <button class="btn-light" href="{% url 'create_product' %}">
+            Add Product
+        </button>
+        </div>
         <div class="row">
         {% for product in products %}
             <div class="col-md-4">
@@ -41,6 +47,7 @@
                            class="btn btn-primary">
                             Add to cart
                         </a>
+                        <i class="fa-solid fa-pen-to-square" href="{url }"></i>
                     </div>
                 </div>
             </div>
